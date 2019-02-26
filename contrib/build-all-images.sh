@@ -6,12 +6,12 @@ DOCKERFILE=""
 
 
 # Build docker-compose-generator
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/dcg-latest/docker-compose-generator/linuxamd64.Dockerfile
+# https://raw.githubusercontent.com/vendofficial/btcpayserver-docker/dcg-latest/docker-compose-generator/linuxamd64.Dockerfile
 DOCKERFILE="docker-compose-generator/linuxamd64.Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/dcg-latest/docker-compose-generator/linuxarm32v7.Dockerfile
+# https://raw.githubusercontent.com/vendofficial/btcpayserver-docker/dcg-latest/docker-compose-generator/linuxarm32v7.Dockerfile
 [[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="docker-compose-generator/linuxarm32v7.Dockerfile"
 echo "Building btcpayserver/docker-compose-generator:latest"
-git clone https://github.com/btcpayserver/btcpayserver-docker docker-compose-generator
+git clone https://github.com/vendofficial/btcpayserver-docker docker-compose-generator
 cd docker-compose-generator
 git checkout dcg-latest
 cd "$(dirname $DOCKERFILE)"
@@ -21,11 +21,11 @@ cd - && cd ..
 
 # Build docker-compose-builder
 DOCKERFILE=""
-# https://raw.githubusercontent.com/btcpayserver/docker-compose-builder/v1.23.2/linuxarm32v7.Dockerfile
+# https://raw.githubusercontent.com/vendofficial/docker-compose-builder/v1.23.2/linuxarm32v7.Dockerfile
 [[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="linuxarm32v7.Dockerfile"
 if [[ "$DOCKERFILE" ]]; then
 	echo "Building btcpayserver/docker-compose-builder:1.23.2"
-	git clone https://github.com/btcpayserver/docker-compose-builder docker-compose-builder
+	git clone https://github.com/vendofficial/docker-compose-builder docker-compose-builder
 	cd docker-compose-builder
 	git checkout v1.23.2
 	cd "$(dirname $DOCKERFILE)"
@@ -151,12 +151,12 @@ cd - && cd ..
 
 
 # Build btcpayserver
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v1.0.3.52/Dockerfile.linuxamd64
+# https://raw.githubusercontent.com/vendofficial/btcpayserver/v1.0.3.52/Dockerfile.linuxamd64
 DOCKERFILE="Dockerfile.linuxamd64"
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v1.0.3.52/Dockerfile.linuxarm32v7
+# https://raw.githubusercontent.com/vendofficial/btcpayserver/v1.0.3.52/Dockerfile.linuxarm32v7
 [[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile.linuxarm32v7"
 echo "Building btcpayserver/btcpayserver:1.0.3.52"
-git clone https://github.com/btcpayserver/btcpayserver btcpayserver
+git clone https://github.com/vendofficial/btcpayserver btcpayserver
 cd btcpayserver
 git checkout v1.0.3.52
 cd "$(dirname $DOCKERFILE)"
